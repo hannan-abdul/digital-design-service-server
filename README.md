@@ -3,7 +3,7 @@ This website is about digital service like web design, brand identity, photograp
 Live URL: https://digital-design-service.web.app/
 
 This is client site link: 
-https://github.com/Porgramming-Hero-web-course/complete-website-client-hannan-abdul
+https://github.com/hannan-abdul/digital-design-service-client
 
 This is server site link: 
-https://github.com/Porgramming-Hero-web-course/complete-website-server-hannan-abdul
+https://github.com/hannan-abdul/digital-design-service-server
