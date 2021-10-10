@@ -24,7 +24,7 @@ app.use("/api/reviews", reviews)
 
 
 app.get('/', (req, res) => {
-  res.send('Home Renovation server')
+  res.send('Digital Design Server')
 })
 
 app.listen(port, () => {
