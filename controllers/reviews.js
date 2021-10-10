@@ -31,8 +31,6 @@ const allreviews = async ( req, res)=>{
 }
 
 //delete api
-this
-
 
 module.exports ={
     addreviews,
