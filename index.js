@@ -6,7 +6,6 @@ const mongoose = require("mongoose");
 const port = process.env.PORT || 5050;
 const services = require("./routes/services")
 const reviews = require("./routes/reviews")
-const auth = require("./routes/auth")
 
 dotenv.config()
 app.use(cors());
@@ -22,7 +21,6 @@ mongoose.connect(process.env.MONGO_URL, {
 // All Routes
 app.use("/api/services", services)
 app.use("/api/reviews", reviews)
-app.use("/api/auth", auth)
 
 
 app.get('/', (req, res) => {
