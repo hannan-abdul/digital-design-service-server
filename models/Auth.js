@@ -1,30 +1,29 @@
 const mongoose = require('mongoose');
 
-const reviewsSchema = new mongoose.Schema({
+const AuthSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
-        unique: false
+        unique: false,
     },
     email: {
         type: String,
+        lowercase: true,
+        trim: true,
         required: true,
-        unique: true
+        unique: true,
     },
-    city: {
+    password: {
         type: String,
         required: true,
+        minlength: 6,
         unique: false
     },
-    description: {
+    role: {
         type: String,
         required: true,
-        unique: false
-    },
-    photo: {
-        type: String,
-        required: true
+        unique: false,
     }
 }, { timestamps: true });
 
-module.exports = mongoose.model('reviews', reviewsSchema);
+module.exports = mongoose.model('auth', AuthSchema);

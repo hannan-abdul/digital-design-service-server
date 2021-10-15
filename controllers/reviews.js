@@ -5,6 +5,7 @@ const addreviews = async (req, res) => {
     try {
         const newReview = new Reviews({
             name: req.body.name,
+            email: req.body.email,
             city: req.body.city,
             description: req.body.description,
             photo: req.body.photo,
