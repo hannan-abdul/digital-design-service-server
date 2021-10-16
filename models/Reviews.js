@@ -8,8 +8,7 @@ const reviewsSchema = new mongoose.Schema({
     },
     email: {
         type: String,
-        required: true,
-        unique: true
+        required: true
     },
     city: {
         type: String,

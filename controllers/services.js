@@ -38,12 +38,12 @@ const deleteservice = async (req, res) => {
         if (service.email === req.body.email) {
             try {
                 await service.delete();
-                res.status(200).json("Post has been deleted");
+                res.status(200).json("Service has been deleted");
             } catch (err) {
                 res.status(500).json(err)
             }
         } else {
-            res.status(401).json("You can delete only your post");
+            res.status(401).json("You can delete only your Service");
         }
     }
     catch (err) {
@@ -66,7 +66,7 @@ const updateService = async (req, res) => {
                 res.status(500).json(err);
             }
         } else {
-            res.status(401).json("You can update only your post");
+            res.status(401).json("You can update only your Review");
         }
     } catch (err) {
         res.status(500).json(err)

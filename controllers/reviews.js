@@ -31,10 +31,52 @@ const allreviews = async ( req, res)=>{
     }
 }
 
-//delete api
+//delete review
+const deletereview = async (req, res) => {
+    try {
+        const review = await Reviews.findById(req.params.id);
+        if (review.email === req.body.email) {
+            try {
+                await review.delete();
+                res.status(200).json("Review has been deleted");
+            } catch (err) {
+                res.status(500).json(err)
+            }
+        } else {
+            res.status(401).json("You can delete only your Review");
+        }
+    }
+    catch (err) {
+        res.status(500).json(err)
+    }
+}
+// update review
+const updateReview = async (req, res) => {
+    try {
+        const review = await Reviews.findById(req.params.id);
+        if (review.email === req.body.email) {
+            try {
+                const updatereview = await Reviews.findByIdAndUpdate(
+                    req.params.id,
+                    { $set: req.body },
+                    { new: true }
+                );
+                res.status(200).json(updatereview);
+            } catch (err) {
+                res.status(500).json(err);
+            }
+        } else {
+            res.status(401).json("You can update only your Review");
+        }
+    } catch (err) {
+        res.status(500).json(err)
+    }
+}
 
 
 module.exports ={
     addreviews,
-    allreviews
+    allreviews,
+    deletereview,
+    updateReview
 }
