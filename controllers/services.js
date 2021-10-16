@@ -5,6 +5,7 @@ const addservice = async (req, res) => {
     try {
         const newService = new Services({
             name: req.body.name,
+            email: req.body.email,
             price: req.body.price,
             description: req.body.description,
             photo: req.body.photo,
@@ -18,15 +19,15 @@ const addservice = async (req, res) => {
     }
 }
 
-//all services list
-const allservices = async ( req, res)=>{
-    try{
+//get all services list
+const allservices = async (req, res) => {
+    try {
         const services = await Services.find()
         res.status(200).json(services)
     }
-    catch(err){
+    catch (err) {
         console.log(err)
-        res.status(500).json({message: err.message})
+        res.status(500).json({ message: err.message })
     }
 }
 
@@ -87,11 +88,11 @@ const singleservice = async (req, res) => {
 
 
 
-module.exports ={
+module.exports = {
     addservice,
     allservices,
+    singleservice,
     deleteservice,
-    updateService,
-    singleservice
+    updateService
 }
 
