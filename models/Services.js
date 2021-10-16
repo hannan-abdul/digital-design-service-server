@@ -6,6 +6,10 @@ const servicesSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
+    email: {
+        type: String,
+        required: true
+    },
     price: {
         type: Number,
         required: true,

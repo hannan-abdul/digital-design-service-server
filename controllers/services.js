@@ -30,11 +30,68 @@ const allservices = async ( req, res)=>{
     }
 }
 
-//delete api
+//delete service
+const deleteservice = async (req, res) => {
+    try {
+        const service = await Services.findById(req.params.id);
+        if (service.email === req.body.email) {
+            try {
+                await service.delete();
+                res.status(200).json("Service has been deleted");
+            } catch (err) {
+                res.status(500).json(err)
+            }
+        } else {
+            res.status(401).json("You can delete only your Service");
+        }
+    }
+    catch (err) {
+        res.status(500).json(err)
+    }
+}
+// update service 
+const updateService = async (req, res) => {
+    try {
+        const service = await Services.findById(req.params.id);
+        if (service.email === req.body.email) {
+            try {
+                const updateservice = await Services.findByIdAndUpdate(
+                    req.params.id,
+                    { $set: req.body },
+                    { new: true }
+                );
+                res.status(200).json(updateservice);
+            } catch (err) {
+                res.status(500).json(err);
+            }
+        } else {
+            res.status(401).json("You can update only your Review");
+        }
+    } catch (err) {
+        res.status(500).json(err)
+    }
+}
+
+// get single service 
+const singleservice = async (req, res) => {
+    let serviceId = req.params.id;
+    try {
+        const serviceItem = await Services.findById(serviceId);
+        res.status(200).json(serviceItem)
+    }
+    catch (err) {
+        console.log(err)
+        res.status(500).json({ message: err.message })
+    }
+};
+
 
 
 module.exports ={
     addservice,
-    allservices
+    allservices,
+    deleteservice,
+    updateService,
+    singleservice
 }
 

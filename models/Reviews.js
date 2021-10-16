@@ -6,6 +6,10 @@ const reviewsSchema = new mongoose.Schema({
         required: true,
         unique: false
     },
+    email: {
+        type: String,
+        required: true
+    },
     city: {
         type: String,
         required: true,
