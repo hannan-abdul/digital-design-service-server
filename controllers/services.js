@@ -50,6 +50,7 @@ const deleteservice = async (req, res) => {
         res.status(500).json(err)
     }
 }
+
 // update service 
 const updateService = async (req, res) => {
     try {
