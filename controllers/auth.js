@@ -2,7 +2,6 @@ const auth = require('../models/Auth');
 const bcrypt = require('bcrypt');
 
 // Register
-
 const Register = async (req, res) => {
     try {
         const salt = await bcrypt.genSalt(16);
@@ -22,7 +21,6 @@ const Register = async (req, res) => {
 };
 
 //Login
-
 const Login = async (req, res) => {
     try {
         const authuser = await auth.findOne({ email: req.body.email });
@@ -39,6 +37,7 @@ const Login = async (req, res) => {
     }
 };
 
+//all user
 const Alluser = async (req, res) => {
     try {
         const authuser = await auth.find();
@@ -47,7 +46,7 @@ const Alluser = async (req, res) => {
     catch (err) {
         res.status(500).json({ message: err.message })
     }
-}
+};
 
 module.exports = {
     Register,
